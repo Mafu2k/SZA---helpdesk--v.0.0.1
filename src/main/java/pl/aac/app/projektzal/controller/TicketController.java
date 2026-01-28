@@ -9,9 +9,6 @@ import pl.aac.app.projektzal.service.TicketService;
 
 import java.util.List;
 
-/**
- * Kontroler REST API dla zarzadzania ticketami
- */
 @RestController
 @RequestMapping("/api/tickets")
 public class TicketController {

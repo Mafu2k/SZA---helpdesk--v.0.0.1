@@ -21,10 +21,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-/**
- * Testy jednostkowe kontrolera REST API
- * Uzywamy Mockito do mockowania serwisu
- */
 @ExtendWith(MockitoExtension.class)
 class TicketControllerTest {
 

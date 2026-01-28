@@ -15,9 +15,6 @@ import pl.aac.app.projektzal.repository.TicketRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Serwis zawierajacy logike biznesowa dla ticketow
- */
 @Service
 public class TicketService {
 

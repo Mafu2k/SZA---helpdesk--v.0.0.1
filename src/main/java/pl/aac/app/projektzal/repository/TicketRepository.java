@@ -10,10 +10,6 @@ import pl.aac.app.projektzal.model.Ticket;
 
 import java.util.List;
 
-/**
- * Repozytorium do operacji na ticketach
- * Dziedziczy podstawowe metody CRUD z JpaRepository
- */
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 

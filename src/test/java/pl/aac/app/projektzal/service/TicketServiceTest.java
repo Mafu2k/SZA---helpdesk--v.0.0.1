@@ -23,10 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-/**
- * Testy jednostkowe dla TicketService
- * Uzywamy Mockito do mockowania repozytorium
- */
 @ExtendWith(MockitoExtension.class)
 class TicketServiceTest {
 
