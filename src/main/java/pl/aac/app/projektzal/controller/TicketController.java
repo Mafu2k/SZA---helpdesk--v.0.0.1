@@ -62,7 +62,6 @@ public class TicketController {
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
-    // PUT /api/tickets/{id} - aktualizacja ticketa
     @PutMapping("/{id}")
     public ResponseEntity<TicketResponseDto> updateTicket(
             @PathVariable Long id,
@@ -71,7 +70,6 @@ public class TicketController {
         return ResponseEntity.ok(updated);
     }
 
-    // PATCH /api/tickets/{id}/status - zmiana statusu
     @PatchMapping("/{id}/status")
     public ResponseEntity<TicketResponseDto> changeStatus(
             @PathVariable Long id,
@@ -80,7 +78,6 @@ public class TicketController {
         return ResponseEntity.ok(updated);
     }
 
-    // DELETE /api/tickets/{id} - usuwanie ticketa
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
         ticketService.delete(id);

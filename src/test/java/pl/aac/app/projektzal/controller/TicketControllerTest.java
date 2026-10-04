@@ -56,7 +56,6 @@ class TicketControllerTest {
                 verify(ticketService, times(1)).findAll();
         }
 
-        // Test GET /api/tickets/{id} - sukces
         @Test
         void testGetTicketById() {
                 // given
@@ -83,7 +82,6 @@ class TicketControllerTest {
                 });
         }
 
-        // Test POST /api/tickets - tworzenie
         @Test
         void testCreateTicket() {
                 // given
@@ -101,7 +99,6 @@ class TicketControllerTest {
                 assertEquals("Nowy", response.getBody().getTitle());
         }
 
-        // Test DELETE /api/tickets/{id}
         @Test
         void testDeleteTicket() {
                 // given

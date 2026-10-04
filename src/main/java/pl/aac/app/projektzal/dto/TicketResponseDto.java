@@ -15,11 +15,9 @@ public class TicketResponseDto {
     private String status; // status
     private LocalDateTime createdAt; // data utworzenia
 
-    // Konstruktor domyslny
     public TicketResponseDto() {
     }
 
-    // Konstruktor z parametrami
     public TicketResponseDto(Long id, String title, String description,
             String priority, String status, LocalDateTime createdAt) {
         this.id = id;

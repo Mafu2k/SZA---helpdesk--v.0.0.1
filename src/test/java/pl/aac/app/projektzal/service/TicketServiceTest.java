@@ -54,7 +54,6 @@ class TicketServiceTest {
                 "HIGH", "NEW", LocalDateTime.now());
     }
 
-    // Test pobierania wszystkich ticketow
     @Test
     void testFindAll() {
         // given - przygotowanie
@@ -101,7 +100,6 @@ class TicketServiceTest {
         verify(ticketRepository, times(1)).findById(999L);
     }
 
-    // Test usuwania ticketa
     @Test
     void testDelete() {
         // given
@@ -115,7 +113,6 @@ class TicketServiceTest {
         verify(ticketRepository, times(1)).deleteById(1L);
     }
 
-    // Test usuwania nieistniejacego ticketa
     @Test
     void testDeleteNotFound() {
         // given

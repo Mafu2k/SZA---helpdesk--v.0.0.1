@@ -21,13 +21,11 @@ public class TicketService {
     private final TicketRepository ticketRepository;
     private final TicketMapper ticketMapper;
 
-    // Konstruktor - wstrzykiwanie zaleznosci
     public TicketService(TicketRepository ticketRepository, TicketMapper ticketMapper) {
         this.ticketRepository = ticketRepository;
         this.ticketMapper = ticketMapper;
     }
 
-    // Pobieranie wszystkich ticketow
     public List<TicketResponseDto> findAll() {
         List<Ticket> tickets = ticketRepository.findAll();
         return tickets.stream()
@@ -35,14 +33,12 @@ public class TicketService {
                 .collect(Collectors.toList());
     }
 
-    // Pobieranie ticketa po ID
     public TicketResponseDto findById(Long id) {
         Ticket ticket = ticketRepository.findById(id)
                 .orElseThrow(() -> new TicketNotFoundException(id));
         return ticketMapper.toResponseDto(ticket);
     }
 
-    // Tworzenie nowego ticketa
     public TicketResponseDto create(TicketRequestDto dto) {
         validatePriority(dto.getPriority());
         Ticket ticket = ticketMapper.toEntity(dto);
@@ -50,7 +46,6 @@ public class TicketService {
         return ticketMapper.toResponseDto(saved);
     }
 
-    // Aktualizacja ticketa
     public TicketResponseDto update(Long id, TicketRequestDto dto) {
         Ticket ticket = ticketRepository.findById(id)
                 .orElseThrow(() -> new TicketNotFoundException(id));
@@ -60,7 +55,6 @@ public class TicketService {
         return ticketMapper.toResponseDto(updated);
     }
 
-    // Usuwanie ticketa
     public void delete(Long id) {
         if (!ticketRepository.existsById(id)) {
             throw new TicketNotFoundException(id);
@@ -68,7 +62,6 @@ public class TicketService {
         ticketRepository.deleteById(id);
     }
 
-    // Zmiana statusu ticketa
     public TicketResponseDto changeStatus(Long id, String newStatusStr) {
         Ticket ticket = ticketRepository.findById(id)
                 .orElseThrow(() -> new TicketNotFoundException(id));
@@ -84,7 +77,6 @@ public class TicketService {
         return ticketMapper.toResponseDto(updated);
     }
 
-    // Wyszukiwanie po statusie
     public List<TicketResponseDto> findByStatus(String statusStr) {
         Status status = Status.valueOf(statusStr.toUpperCase());
         List<Ticket> tickets = ticketRepository.findByStatus(status);
@@ -93,7 +85,6 @@ public class TicketService {
                 .collect(Collectors.toList());
     }
 
-    // Wyszukiwanie po priorytecie
     public List<TicketResponseDto> findByPriority(String priorityStr) {
         Priority priority = Priority.valueOf(priorityStr.toUpperCase());
         List<Ticket> tickets = ticketRepository.findByPriorityOrderByDate(priority);
@@ -102,7 +93,6 @@ public class TicketService {
                 .collect(Collectors.toList());
     }
 
-    // Wyszukiwanie po tytule
     public List<TicketResponseDto> searchByTitle(String title) {
         List<Ticket> tickets = ticketRepository.findByTitleContainingIgnoreCase(title);
         return tickets.stream()
@@ -110,7 +100,6 @@ public class TicketService {
                 .collect(Collectors.toList());
     }
 
-    // Walidacja priorytetu
     private void validatePriority(String priorityStr) {
         try {
             Priority.valueOf(priorityStr.toUpperCase());

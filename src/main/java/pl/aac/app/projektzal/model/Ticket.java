@@ -31,11 +31,9 @@ public class Ticket {
     @Column(nullable = false)
     private LocalDateTime createdAt; // data utworzenia
 
-    // Konstruktor domyslny wymagany przez JPA
     public Ticket() {
     }
 
-    // Konstruktor z parametrami
     public Ticket(String title, String description, Priority priority) {
         this.title = title;
         this.description = description;

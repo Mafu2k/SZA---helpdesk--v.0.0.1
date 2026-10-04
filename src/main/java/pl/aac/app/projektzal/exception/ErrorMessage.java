@@ -12,7 +12,6 @@ public class ErrorMessage {
     private String message; // komunikat
     private LocalDateTime timestamp; // czas wystapienia
 
-    // Konstruktor
     public ErrorMessage(int status, String error, String message) {
         this.status = status;
         this.error = error;

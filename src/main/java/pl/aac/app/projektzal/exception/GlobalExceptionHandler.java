@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Obsluga bledu: ticket nie znaleziony
     @ExceptionHandler(TicketNotFoundException.class)
     public ResponseEntity<ErrorMessage> handleTicketNotFound(TicketNotFoundException ex) {
         ErrorMessage error = new ErrorMessage(
@@ -22,7 +21,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    // Obsluga bledu: nieprawidlowa zmiana statusu
     @ExceptionHandler(InvalidStatusTransitionException.class)
     public ResponseEntity<ErrorMessage> handleInvalidStatusTransition(InvalidStatusTransitionException ex) {
         ErrorMessage error = new ErrorMessage(
@@ -32,7 +30,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    // Obsluga bledu: nieprawidlowy priorytet
     @ExceptionHandler(InvalidPriorityException.class)
     public ResponseEntity<ErrorMessage> handleInvalidPriority(InvalidPriorityException ex) {
         ErrorMessage error = new ErrorMessage(
@@ -42,7 +39,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    // Obsluga pozostalych bledow
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorMessage> handleGenericException(Exception ex) {
         ErrorMessage error = new ErrorMessage(

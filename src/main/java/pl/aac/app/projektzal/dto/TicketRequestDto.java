@@ -10,11 +10,9 @@ public class TicketRequestDto {
     private String description; // opis problemu
     private String priority; // priorytet jako String
 
-    // Konstruktor domyslny
     public TicketRequestDto() {
     }
 
-    // Konstruktor z parametrami
     public TicketRequestDto(String title, String description, String priority) {
         this.title = title;
         this.description = description;
